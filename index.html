@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+
+<body>
+	<input type="button" id="button" value="回调开始">
+	<script type="text/javascript">
+		var callbackFn = function (data) {
+			console.log(data)
+		}
+		button.onclick = function () {
+			var script = document.createElement('script')
+			script.src = ` xxx.js?callback=callbackFn`
+			script.onload = function () {
+				console.log('加载xxx.js 成功');
+			}
+			document.head.appendChild(script)
+		}
+	</script>
+</body>
+
+</html>
